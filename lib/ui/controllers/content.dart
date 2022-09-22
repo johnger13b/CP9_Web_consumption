@@ -8,11 +8,13 @@ class ContentController extends GetxController {
   List<Post> get posts => _posts.value;
 
   Future<List<Post>> fetchPosts() async {
-    // TODO: obten los posts con [PastsManager]
+    // obten los posts con [PastsManager]
+    _posts.value = await PostsManager.fetchPosts();
     return posts;
   }
 
   Future<void> uploadPost() async {
-    // TODO: publica un post con [PastsManager]
+    // publica un post con [PastsManager]
+    await PostsManager.uploadPost();
   }
 }

@@ -21,7 +21,10 @@ class NetworkController extends GetxController {
           await NetworkManager.isConnected(connectivityResult: result),
     );
     ever<bool>(_connected, (isConnected) {
-      // TODO: Cuando el app se desconecte naveguen a la pagina de conexiones
+      // Cuando el app se desconecte naveguen a la pagina de conexiones
+      if (!isConnected) {
+        Get.off(() => const NetworkDetectionPage());
+      }
     });
   }
 }
